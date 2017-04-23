@@ -1,0 +1,107 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid text-center">
+        <a class="navbar-brand top-logo fs-xs-2-0 visible-xs" href="./">
+            Search
+        </a>
+    </div>
+    <div class="container-fluid pt-sm-20 searchBox">
+        <div class="navbar-right-static hidden-xs">
+
+            <ul class="nav navbar-nav">
+				<li>
+					<?php if ($has_categories && $search==1 && $show_categories){?> 
+					<a href="search.php"><?php print $sph_messages['Categories']?></a>
+					<?php  }?>	
+				</li>
+                <li>
+                    <a href="#" class="fs-xs-1-4 text-muted"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></a>
+                </li>
+                <li>
+                    <a href="#" class="fs-xs-1-4 text-muted"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a>
+                </li>
+                <li>
+                    <a href="#"><span class="avatar avatar-32 bg-primary img-circle">G</span></a>
+                </li>
+            </ul>
+
+        </div>
+        <a class="navbar-brand fs-xs-3-0 pt-xs-10 hidden-xs" href="./">
+            Search
+        </a>
+
+        <form action="search.php" method="get" class=" mb-xs-15">
+            <div class="input-group search-group">
+                <input type="text" name="query" id="query" size="40" class="form-control input-lg" value="<?php   print quote_replace($query);?>" action="include/js_suggest/suggest.php" columns="2" autocomplete="off" delay="1500" required>
+                <div class="input-group-btn">
+                    <button class="btn btn-lg btn-primary" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+			<input type="hidden" name="search" value="1">
+			<?php if ($catid<>0){?>     
+	<b><?php print $sph_messages['Search']?></b>: <input type="radio" name="category" value="<?php print $catid?>"><?php print $sph_messages['Only in category']?> "<?php print $tpl_['category'][0]['category']?>'" <input type="radio" name="category" value="-1" checked><?php print $sph_messages['All sites']?>
+<?php  }?>
+        </form>
+    </div>
+</nav>
+<div class="brand-padding pt-sm-30">
+    <div role="tabpanel" class="col-md-8 p-md-0">
+		<?php  if ($adv==1 || $advanced_search==1) { ?>
+		<div class="pull-right hidden-xs">
+			<a href="#advanced" data-toggle="collapse" class="no-underline btn btn-default btn-sm mt-xs-5">Advanced</a>
+		</div>
+		<?php } ?>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified-xs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="search" aria-controls="home" role="tab" data-toggle="tab">All</a>
+            </li>
+            <li role="presentation">
+                <a href="#images" aria-controls="tab" role="tab" data-toggle="tab">Images</a>
+            </li>
+            <li role="presentation">
+                <a href="#video" aria-controls="tab" role="tab" data-toggle="tab">Videos</a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="clearfix">
+</div>
+<div>
+    <div class="container-fluid">
+	<?php  if ($adv==1 || $advanced_search==1) {
+?>
+	<div class="row">
+	<div class="col-md-8 pt-xs-5">
+	
+	<div class="collapse text-muted hidden-xs" id="advanced">
+	<form action="search.php" method="get">
+	<input type="hidden" name="query" id="query" value="<?php   print quote_replace($query);?>">
+	<input type="hidden" name="search" value="1">
+	<table width = "100%">
+	<tr>
+		<td><label class="font-weight-normal"><input type="radio" name="type" value="and" <?php print $type=='and'?'checked':''?>> <?php print $sph_messages['andSearch']?></label></td>
+		<td><label class="font-weight-normal"><input type="radio" name="type" value="or" <?php print $_REQUEST['type']=='or'?'checked':''?>> <?php print $sph_messages['orSearch']?></label></td>
+	
+		<td><label class="font-weight-normal"><input type="radio" name="type" value="phrase" <?php print $_REQUEST['type']=='phrase'?'checked':''?>> <?php print $sph_messages['phraseSearch']?></label></td>
+		<td><?php print $sph_messages['show']?>
+			<select name='results' class="form-control input-sm" style="width:auto; display: inline;">
+		      <option <?php  if ($results_per_page==10) echo "selected";?>>10</option>
+			  <option <?php  if ($results_per_page==20) echo "selected";?>>20</option>
+		      <option <?php  if ($results_per_page==50) echo "selected";?>>50</option>
+		      <option <?php  if ($results_per_page==100) echo "selected";?>>100</option>
+			</select>
+				
+	  		<?php print $sph_messages['resultsPerPage']?>   
+	  	</td>
+		<td>
+			<input type="submit" class="btn btn-sm btn-primary" value="Save"/>
+	  	</td>
+	</tr>
+	</table>
+	</form>
+	</div>
+	</div>
+</div>
+<?php }?>

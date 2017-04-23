@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://grvpanchal.github.io/bootstrap-essentials/dist/css/bootstrap-essentials.css">
+    <style>
+        @media (min-width: 768px) {
+            .container-login-2 {
+                padding-top: 180px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-login-2">
+
+        <nav class="navbar navbar-fixed-top" role="navigation">
+            <div class="navbar-right-static">
+
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/apps/mail" class="text-muted">Mail</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-muted">Images</a>
+                    </li>
+                    <li>
+                        <a href="#" class="fs-xs-1-4 text-muted"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="fs-xs-1-4 text-muted"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="avatar avatar-32 bg-primary img-circle" >G</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1 class="text-center mb-xs-20 mb-sm-30">
+                    <span class="fs-xs-1-4 fs-sm-2-4">
+                        <span class="text-primary">S</span><span class="text-danger">e</span><span class="text-info">a</span>
+                    <span
+                        class="text-primary">r</span><span class="text-success">c</span><span class="text-danger">h</span>
+                        </span>
+                </h1>
+
+                <form action="search.php" method="GET" class="form-horizontal" role="form">
+                    <input type="search" id="query" name="query" class="form-control input-lg mb-xs-20 mb-xs-30" value="" required="required"
+                        title="">
+
+                    <div class="text-center">
+
+                        <button type="submit" class="btn btn-default btn-lg btn-block-xs">Search</button>
+                        <button type="button" class="btn btn-default btn-lg btn-block-xs">I'm Feeling Lucky</button>
+
+                    </div>
+                    <input type="hidden" name="search" value="1">
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://grvpanchal.github.io/bootstrap-essentials/dist/js/bootstrap-essentials.js"></script>
+</body>
+
+</html>
