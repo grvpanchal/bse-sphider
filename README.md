@@ -4,6 +4,10 @@ This is a Bootstrap theme for Sphider Search Engine. Please visit [Sphider websi
 
 This theme requires Sphider installed on you LAMP/WAMP/MAMP Server. Download it from here: [http://www.sphider.eu/download.php] (http://www.sphider.eu/download.php)
 
+Make sure you have added correct reporting to make the theme work well.
+```
+error_reporting(E_ALL ^ E_DEPRECATED); 
+```
 ## Installation
 
 - If exist, backup you index.php file
